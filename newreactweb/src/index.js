@@ -1,21 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Ctl from './function/Ctldata';
 import reportWebVitals from './reportWebVitals';
 
-const changeName=(newName)=>{ 
-    name=newName;
-    console.log("hey")//加入此行
-}
-
-var name="舊的名字";
-
-
 ReactDOM.render(
-  
   <div>
-    <App name={name} handleClick={changeName}/>
+    <Ctl />
   </div>,
   document.getElementById('root')
 );
