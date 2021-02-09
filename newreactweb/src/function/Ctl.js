@@ -1,30 +1,31 @@
 import React, { Component  } from 'react';
-import App from './function/App';
-import Ctldata from './function/Ctldata';
+import Ctldata from './Ctldata';
 import Button from '@material-ui/core/Button';
 
 class Ctl extends Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            processvalue: 0
-        }
-        this.setInputProcess=this.setInputProcess.bind(this)
-      }
-
-    setInputProcess(target,amount){
-        this.setState({processvalue:amount})
+constructor(props) {
+    super(props);
+    this.state={
+        Process: 0
     }
+    this.setProcessValue=this.setProcessValue.bind(this)
+    }
+
+    setProcessValue(amount){
+            this.setState({Process: this.state.Process + amount})
+        }    
 
     render(){
         return(
             <div>
-                <Ctldata id="fristname"  />
-                <Ctldata id="secondname" />
-                <Ctldata id="phnomber" />
-                <App processpercent={this.state.processvalue}/>
+                <div>
+                <Ctldata ProcessValue={this.state.Process} 
+                        GetProcess={this.setProcessValue} />
+                目前比率: {this.state.Process}%
+                </div>
             </div>
-        )
+        );
     }
 }
+
 export default Ctl;

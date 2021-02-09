@@ -5,36 +5,28 @@ class Ctldata extends Component{
     constructor(props) {
         super(props);
         this.state={
-            inputValue: '',
-            id: this.props.id , 
-            processvalue: 0
+            inputValue: '' ,
+            ProcessValue : this.props.ProcessValue
         }
         this.setInputValue=this.setInputValue.bind(this)
-        this.setProcess=this.setProcess.bind(this)
       }
-    
-    setInputValue=(event) => 
-        this.setState({
-             inputValue : event.target.value
-            })
 
-    setProcess(){
-        debugger;
-        if(this.state.inputValue.length >= 5)
-            this.props.getprocess( "" ,this.state.processvalue + 25 );
-        else
-            this.props.getprocess( "" ,this.state.processvalue - 25 );
-    }
+    setInputValue=(eventValue) => {
+        this.setState({
+             inputValue : eventValue 
+            })
+        if(this.state.inputValue.length > 5)
+            this.props.GetProcess(5)
+        } 
 
     render(){
         return(
             <div>
                 <div>
-                <Input id={this.state.id} value={this.state.inputValue}
-                    onChange={this.setInputValue} />
+                <Input onChange={(e)=>{this.setInputValue(e.target.value)}} />
                 </div>
             </div>
-        )
+        );
     }
 }
 export default Ctldata;

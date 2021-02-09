@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Ctl from './function/Ctldata';
+import Ctl from './function/Ctl';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
